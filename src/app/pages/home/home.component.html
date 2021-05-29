@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<app-container classes="container-1 flex">
+<ng-container *ngIf="(list$) | async as list; else loadingOrError">
+    <app-encounter-card class="item" *ngFor="let item of list" [encounter]="item" appOnhover></app-encounter-card>
+    <br>
+  </ng-container>
+  <ng-template #loadingOrError>
+    <ng-container *ngIf="errorObject; else loading">
+      <span class="center">
+        Something went wrong...
+      </span>
+    </ng-container>
+    <ng-template #loading>
+      <span class="center">
+        <mat-spinner></mat-spinner>
+      </span>
+    </ng-template>
+  </ng-template>
+</app-container>
+
+<button mat-fab class="btn" (click)="addDialog()" appOnhover>
+  <mat-icon>add</mat-icon>
+</button>

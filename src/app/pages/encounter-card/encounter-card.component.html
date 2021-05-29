@@ -1,0 +1,27 @@
+<mat-card *ngIf="encounter" class="card">
+  <mat-card-header>
+    <mat-card-title>
+      <span appHighlight>ID: {{encounter.firebaseId}}</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p appHighlight>
+      Status: {{encounter.status}}
+    </p>
+    <p appHighlight>
+      Class: {{encounter.class}}
+    </p>
+  </mat-card-content>
+<mat-card-actions>
+  <div>
+    <button class="card-button" color="primary" mat-flat-button (click)="editItem(encounter)">
+      EDIT
+  </button>
+  <button class="card-button" color="warn" (click)="deleteItem(encounter.firebaseId)" mat-flat-button>
+      DELETE
+  </button>
+  </div>
+</mat-card-actions>
+
+
+</mat-card>

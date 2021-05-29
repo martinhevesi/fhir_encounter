@@ -1,0 +1,32 @@
+<form [formGroup]="form">
+    <h3>Edit Encounter</h3>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" [(value)]="this.data.status">
+        <mat-option value="planned">Planned</mat-option>
+        <mat-option value="arrived">Arrived</mat-option>
+        <mat-option value="triaged">Triaged</mat-option>
+        <mat-option value="in-progress">In-progress</mat-option>
+        <mat-option value="onleave">On leave</mat-option>
+        <mat-option value="finished">Finished</mat-option>
+        <mat-option value="cancelled">Cancelled</mat-option>
+        <mat-option value="entered-in-error">Entered in error</mat-option>
+        <mat-option value="unknown">Unknown</mat-option>
+      </mat-select>
+      <!-- <input type="text" formControlName="status" name="status" matInput required> -->
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Class</mat-label>
+      <input type="text" name="class" matInput formControlName="class">
+    </mat-form-field>
+  
+    <div>
+      <button mat-flat-button color="primary" class="dialog-button max-width" 
+      [mat-dialog-close]="form.value" [disabled]="form.invalid">EDIT</button>
+      <button mat-flat-button color="warn" class="dialog-button max-width" 
+      (click)="dialogRef.close()">CANCEL</button>
+  </div>
+  
+  </form>
